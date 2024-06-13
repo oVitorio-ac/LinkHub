@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vitório Augusto Cavalheiro - Links</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            background-color: #282C34;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: white;
+        }
+        .linktree-container {
+            background: #3A3F47;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            text-align: center;
+            width: 100%;
+            max-width: 400px;
+        }
+        .linktree-container img {
+            border-radius: 50%;
+            margin-bottom: 20px;
+        }
+        .linktree-container h1 {
+            margin-bottom: 20px;
+        }
+        .linktree-container a,
+        .linktree-container button {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+            text-decoration: none;
+            color: white;
+            transition: transform 0.3s, background-color 0.3s;
+        }
+        .linktree-container a.instagram { background: #E1306C; }
+        .linktree-container a.email { background: #D44638; }
+        .linktree-container a.whatsapp { background: #25D366; }
+        .linktree-container a.github { background: #333; }
+        .linktree-container a.linkedin { background: #0077B5; }
+        .linktree-container button.save-contact { background: #28a745; border: none; }
+        .linktree-container button.copy-pix { background: #ffc107; border: none; }
+        .linktree-container a:hover,
+        .linktree-container button:hover {
+            transform: scale(1.05);
+            background-color: #212529;
+        }
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="linktree-container">
+        <img src="https://avatars.githubusercontent.com/u/88901960?v=4" alt="Profile Picture" width="150">
+        <h1>Vitório Augusto Cavalheiro</h1>
+        <a href="https://www.instagram.com/vitorio.cavalheiro" class="instagram">
+            <i class="fab fa-instagram"></i> Instagram
+        </a>
+        <a href="mailto:vitoriocavalheiro03@gmail.com" class="email">
+            <i class="fas fa-envelope"></i> Email
+        </a>
+        <a href="https://wa.me/+5519971560826" class="whatsapp">
+            <i class="fab fa-whatsapp"></i> WhatsApp
+        </a>
+        <a href="https://github.com/oVitorio-ac" class="github">
+            <i class="fab fa-github"></i> GitHub
+        </a>
+        <a href="https://www.linkedin.com/in/vitorio-ac/" class="linkedin">
+            <i class="fab fa-linkedin"></i> LinkedIn
+        </a>
+        <div class="button-container">
+            <button class="save-contact" onclick="saveContact()">
+                <i class="fas fa-address-card"></i> Salvar Contato
+            </button>
+            <button class="copy-pix" onclick="copyPix()">
+                <i class="fas fa-copy"></i> Copiar Chave PIX
+            </button>
+        </div>
+    </div>
+
+    <script>
+        function saveContact() {
+            const contact = {
+                name: "Vitório Augusto Cavalheiro",
+                email: "vitoriocavalheiro03@gmail.com",
+                phone: "+5519971560826",
+                instagram: "https://www.instagram.com/vitorio.cavalheiro",
+                linkedin: "https://www.linkedin.com/in/vitorio-ac/",
+                github: "https://github.com/oVitorio-ac"
+            };
+            const vCard = `
+BEGIN:VCARD
+VERSION:3.0
+FN:${contact.name}
+EMAIL:${contact.email}
+TEL:${contact.phone}
+URL:${contact.instagram}
+URL:${contact.linkedin}
+URL:${contact.github}
+END:VCARD
+            `;
+            const blob = new Blob([vCard], { type: 'text/vcard' });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = 'Vitório_Augusto_Cavalheiro.vcf';
+            link.click();
+        }
+
+        function copyPix() {
+            const pixKey = "sua-chave-pix-aqui";  // Substitua pela sua chave PIX real
+            navigator.clipboard.writeText(pixKey).then(() => {
+                alert("Chave PIX copiada para a área de transferência!");
+            }, () => {
+                alert("Falha ao copiar a chave PIX.");
+            });
+        }
+    </script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
