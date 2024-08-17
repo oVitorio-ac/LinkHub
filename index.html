@@ -94,29 +94,9 @@
 
     <script>
         function saveContact() {
-            const contact = {
-                name: "Vitório Augusto Cavalheiro",
-                email: "vitoriocavalheiro03@gmail.com",
-                phone: "+5519971560826",
-                instagram: "https://www.instagram.com/vitorio.cavalheiro",
-                linkedin: "https://www.linkedin.com/in/vitorio-ac/",
-                github: "https://github.com/oVitorio-ac"
-            };
-            const vCard = `
-BEGIN:VCARD
-VERSION:3.0
-FN:${contact.name}
-EMAIL:${contact.email}
-TEL:${contact.phone}
-URL:${contact.instagram}
-URL:${contact.linkedin}
-URL:${contact.github}
-END:VCARD
-            `;
-            const blob = new Blob([vCard], { type: 'text/vcard' });
             const link = document.createElement('a');
-            link.href = URL.createObjectURL(blob);
-            link.download = 'Vitório_Augusto_Cavalheiro.vcf';
+            link.href = './Vitório_Augusto_Cavalheiro.vcf';  // Caminho para o arquivo vCard na raiz do projeto
+            link.download = 'Vitório_Augusto_Cavalheiro.vcf';  // Nome do arquivo ao ser baixado
             link.click();
         }
 

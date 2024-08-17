@@ -1,0 +1,11 @@
+BEGIN:VCARD
+VERSION:3.0
+N:Cavalheiro;Vitório;;;
+item1.EMAIL;TYPE=INTERNET:vitoriocavalheiro03@gmail.com
+item1.X-ABLabel:principal
+EMAIL;TYPE=INTERNET:ovitorio.ac@gmail.com
+EMAIL;TYPE=INTERNET:vitoriocavalheiro03@outlook.com
+TEL;TYPE=CELL:199715608256
+BDAY:20040326
+CATEGORIES:myContacts,starred
+END:VCARD
