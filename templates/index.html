@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vitório Augusto Cavalheiro - Links</title>
+    <title>{{ user_info.name }} - Links</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
@@ -65,21 +65,21 @@
 <body>
 
     <div class="linktree-container">
-        <img src="https://avatars.githubusercontent.com/u/88901960?v=4" alt="Profile Picture" width="150">
-        <h1>Vitório Augusto Cavalheiro</h1>
-        <a href="https://www.instagram.com/vitorio.cavalheiro" class="instagram">
+        <img src="{{ user_info.profile_picture }}" alt="Profile Picture" width="150">
+        <h1>{{ user_info.name }}</h1>
+        <a href="{{ user_info.instagram }}" class="instagram">
             <i class="fab fa-instagram"></i> Instagram
         </a>
-        <a href="mailto:vitoriocavalheiro03@gmail.com" class="email">
+        <a href="{{ user_info.email }}" class="email">
             <i class="fas fa-envelope"></i> Email
         </a>
-        <a href="https://wa.me/+5519971560826" class="whatsapp">
+        <a href="{{ user_info.whatsapp }}" class="whatsapp">
             <i class="fab fa-whatsapp"></i> WhatsApp
         </a>
-        <a href="https://github.com/oVitorio-ac" class="github">
+        <a href="{{ user_info.github }}" class="github">
             <i class="fab fa-github"></i> GitHub
         </a>
-        <a href="https://www.linkedin.com/in/vitorio-ac/" class="linkedin">
+        <a href="{{ user_info.linkedin }}" class="linkedin">
             <i class="fab fa-linkedin"></i> LinkedIn
         </a>
         <div class="button-container">
@@ -95,13 +95,13 @@
     <script>
         function saveContact() {
             const link = document.createElement('a');
-            link.href = './Vitório_Augusto_Cavalheiro.vcf';  // Caminho para o arquivo vCard na raiz do projeto
-            link.download = 'Vitório_Augusto_Cavalheiro.vcf';  // Nome do arquivo ao ser baixado
+            link.href = "{{ url_for('static', filename='Vitório_Augusto_Cavalheiro.vcf') }}";
+            link.download = 'Vitório_Augusto_Cavalheiro.vcf';
             link.click();
         }
 
         function copyPix() {
-            const pixKey = "sua-chave-pix-aqui";  // Substitua pela sua chave PIX real
+            const pixKey = "{{ user_info.pix_key }}";
             navigator.clipboard.writeText(pixKey).then(() => {
                 alert("Chave PIX copiada para a área de transferência!");
             }, () => {
